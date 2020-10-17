@@ -1,0 +1,90 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    background-color: #19535f;
+    color: white;
+    width: 90%;
+
+    @media (min-width: 600px) {
+        width: 60%;
+    }
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tag {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.value {
+    font-size: 24px;
+}
+
+.red {
+    color: darkred;
+    font-weight: bold;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    border-radius: 10px;
+
+    @media (min-width: 600px) {
+        width: 60%;
+    }
+}
+
+.country {
+    background-color: darkolivegreen;
+    color: white;
+    padding: 12px 0;
+    font-size: 24px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid darkolivegreen;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.option {
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.option:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.startBtn {
+    background-color: midnightblue;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
