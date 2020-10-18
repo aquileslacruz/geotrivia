@@ -1,13 +1,14 @@
 import { Link } from "gatsby"
 import React from "react"
 import styles from "../styles/header.module.scss"
-import logo from "../assets/logo.png"
+import Image from "./image"
 
 const Header = ({page=''}) => (
   <div className={styles.header}>
-    <div>
-      <Link to="/" className={styles.title}>
-        <img src={logo} alt='logo' className={styles.logo} />
+    <div className={styles.logo}>
+      <Link to="/">
+        {/* <img src={logo} alt='logo' className={styles.logo} /> */}
+        <Image src={'logo.png'} />
       </Link>
     </div>
     <div className={styles.name}>
