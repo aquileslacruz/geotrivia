@@ -1,16 +1,24 @@
 .header {
     display: flex;
-    padding: 24px 36px;
-    background-color: #231123;
-    color: white;
+    padding: 0 36px;
+    background-color: #ffffff;
+    color: black;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
 }
 
-.title {
-    text-decoration: none;
-    font-size: 36px;
-    color: white;
+.logo {
+    max-height: 100px;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    font-size: 24px;
+    text-transform: uppercase;
 }

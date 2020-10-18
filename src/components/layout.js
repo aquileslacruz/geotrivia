@@ -12,9 +12,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
-import styles from "../styles/layout.module.css"
+import styles from "../styles/layout.module.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ page, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header title={data.site.siteMetadata?.title || `Title`} />
+      <Header page={page} />
       <main className={styles.main}>{children}</main>
       <Footer />
     </>
