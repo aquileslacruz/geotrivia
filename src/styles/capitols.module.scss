@@ -49,13 +49,13 @@
 }
 
 .country {
-    background-color: darkolivegreen;
+    background-color: rgb(28, 28, 68);
     color: white;
     padding: 12px 0;
     font-size: 24px;
     width: 100%;
     border-radius: 10px 10px 0 0;
-    border: 1px solid darkolivegreen;
+    border: 1px solid rgb(28, 28, 68);
 }
 
 .options {
@@ -73,10 +73,20 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     background-color: #ffffff;
-}
 
-.option:last-child {
-    border-radius: 0 0 10px 10px;
+    &:last-child {
+        border-radius: 0 0 10px 10px;
+    }
+
+    &.correct {
+        background-color: darkolivegreen;
+        color: white;
+    }
+    
+    &.incorrect {
+        background-color: darkred;
+        color: white;
+    }
 }
 
 .startBtn {

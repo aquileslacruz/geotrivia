@@ -18,6 +18,10 @@ const getCountry = (used = []) => {
 
     let options = [...pickRandom(CAPITOLS[country].cities, OPTIONS_NUMBER - 1), CAPITOLS[country].capitol]
     shuffleArray(options)
+    options = options.map(option => ({
+        value: option,
+        isCapitol: option === CAPITOLS[country].capitol
+    }))
 
     return {
         name: country,
