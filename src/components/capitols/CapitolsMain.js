@@ -87,9 +87,17 @@ const CapitolsMain = () => {
             ?
             <Card country={country} callback={checkAnswer} />
             :
+            <>
+            {
+                responses.length > 0 &&
+                <div className={styles.result}>
+                    {`You had ${points} correct answers out of ${responses.length}`}
+                </div>
+            }
             <div className={styles.startBtn} onClick={startGame}>
-                {'Start'}
+                {responses.length === 0 ? 'Start' : 'Restart'}
             </div>
+            </>
         }
         </>
     )
