@@ -6,6 +6,7 @@ import styles from "../../styles/capitols.module.scss"
 
 import Header from './CapitolsHeader'
 import Card from './CapitolsCard'
+import ScoreCard from './CapitolsScore'
 
 const OPTIONS_NUMBER = 4
 
@@ -37,6 +38,7 @@ const CapitolsMain = () => {
     const [start, setStart] = useState(false)
     const [responses, setResponses] = useState([])
     const [highScore, setHighScore] = useState(0)
+    const [showScore, setShowScore] = useState(false)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -66,6 +68,7 @@ const CapitolsMain = () => {
         if (points > highScore) {
             setHighScore(points)
         }
+        setShowScore(true)
     }
 
     const checkAnswer = (option) => {
@@ -77,6 +80,10 @@ const CapitolsMain = () => {
 
         setResponses(used)
         setCountry(getCountry(used))
+    }
+
+    const handleCloseScore = () => {
+        setShowScore(false)
     }
 
     return (
@@ -97,6 +104,7 @@ const CapitolsMain = () => {
             <div className={styles.startBtn} onClick={startGame}>
                 {responses.length === 0 ? 'Start' : 'Restart'}
             </div>
+            <ScoreCard correct={points} total={responses.length} show={showScore} handleClose={handleCloseScore} />
             </>
         }
         </>
