@@ -47,7 +47,7 @@ const CapitolsMain = () => {
                 const value = counter - 1
                 setCounter(value)
                 if (value === 0) {
-                    endGame()
+                    endGame(points)
                 }
             }
         }, 1000)
@@ -65,11 +65,12 @@ const CapitolsMain = () => {
         setStart(true)
     }
 
-    const endGame = () => {
+    const endGame = (score) => {
         setStart(false)
-        if (points > highScore) {
-            setHighScore(points)
+        if (score > highScore) {
+            setHighScore(score)
         }
+        setPoints(score)
         setShowScore(true)
     }
 
