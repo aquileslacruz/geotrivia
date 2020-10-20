@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from '../../styles/utilities/Modal.module.scss'
 
 const Modal = ({show, title, handleClose, children}) => {

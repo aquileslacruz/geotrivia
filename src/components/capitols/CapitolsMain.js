@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import classnames from 'classnames'
 
 import { getRandomKey, pickRandom, shuffleArray } from "../../utilities"
 import CAPITOLS from "../../assets/capitols"
@@ -57,6 +58,7 @@ const CapitolsMain = () => {
     const startGame = () => {
         // Initialize
         setCountry(getCountry([]))
+        setShowScore(false)
         setPoints(0)
         setResponses([])
         setCounter(60)
@@ -95,7 +97,14 @@ const CapitolsMain = () => {
             <Card country={country} callback={checkAnswer} />
             :
             <>
-            <div className={styles.startBtn} onClick={startGame}>
+            <div 
+                className={
+                    classnames({
+                        [styles.startBtn]: true, 
+                        [styles.disabled]: showScore
+                    })
+                } 
+                onClick={showScore ? null : startGame}>
                 {responses.length === 0 ? 'Start' : 'Restart'}
             </div>
             <ScoreCard correct={points} total={responses.length} show={showScore} handleClose={handleCloseScore} />
