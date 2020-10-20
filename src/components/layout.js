@@ -7,6 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import { CookiesProvider } from 'react-cookie'
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
@@ -28,11 +29,13 @@ const Layout = ({ page, children }) => {
   const headerText = data.site.siteMetadata?.title || `Title`
 
   return (
+    <CookiesProvider>
     <>
       <Header page={page} />
       <main className={styles.main}>{children}</main>
       <Footer />
     </>
+    </CookiesProvider>
   )
 }
 

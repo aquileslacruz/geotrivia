@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useCookies } from 'react-cookie'
 import classnames from 'classnames'
 
 import { getRandomKey, pickRandom, shuffleArray } from "../../utilities"
@@ -40,6 +41,7 @@ const CapitolsMain = () => {
     const [responses, setResponses] = useState([])
     const [highScore, setHighScore] = useState(0)
     const [showScore, setShowScore] = useState(false)
+    const [cookies, setCookie] = useCookies(['highscore'])
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -55,6 +57,12 @@ const CapitolsMain = () => {
         return () => clearTimeout(timer)
     })
 
+    useEffect(() => {
+        if (cookies.highscore) {
+            setHighScore(cookies.highscore)
+        }
+    })
+
     const startGame = () => {
         // Initialize
         setCountry(getCountry([]))
@@ -68,10 +76,15 @@ const CapitolsMain = () => {
     const endGame = (score) => {
         setStart(false)
         if (score > highScore) {
-            setHighScore(score)
+            handleNewHighScore(score)
         }
         setPoints(score)
         setShowScore(true)
+    }
+
+    const handleNewHighScore = (val) => {
+        setHighScore(val)
+        setCookie('highscore', val, { path: '/' })
     }
 
     const checkAnswer = (option) => {
